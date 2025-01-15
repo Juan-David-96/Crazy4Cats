@@ -2,8 +2,7 @@
   <ul class="list-inline">
     <% Reaction.kinds.each do |kind| %>
       <li class="list-inline-item">
-        <% reaction = @post.reactions.find_by(user_id: current_user.id) %>
-        
+        <% reaction = @post.reactions.find_by(user_id: current_user.id) %>        
         <!-- Si el usuario ya tiene una reacción -->
         <% if reaction && reaction.kind == kind %>
           <%= button_to "Eliminar #{kind}", post_reaction_path(@post, reaction), method: :delete, class: 'btn btn-danger' %>
