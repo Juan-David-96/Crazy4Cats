@@ -25,7 +25,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
 
     @comment.user = current_user if user_signed_in?
-    @comment.name = "Anónimo" if @comment.name.blank?
+    @comment.name = if user_signed_in?
+                      @comment.name.blank? ? current_user.name : "#{@comment.name} (#{current_user.name})"
+                    else
+                      @comment.name.presence || "Anónimo"
+                    end
 
     if @comment.save
       redirect_to @post, notice: 'Comentario creado exitosamente.'

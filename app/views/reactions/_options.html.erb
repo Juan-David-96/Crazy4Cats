@@ -2,9 +2,18 @@
   <ul class="list-inline">
     <% Reaction.kinds.each do |kind| %>
       <li class="list-inline-item">
-        <%= button_to "#{kind}", user_reaction_path(post_id: @post.id, kind: kind), method: :post, class: 'btn btn-outline-primary' %>
+        <% reaction = @post.reactions.find_by(user_id: current_user.id) %>
+        
+        <!-- Si el usuario ya tiene una reacción -->
+        <% if reaction && reaction.kind == kind %>
+          <%= button_to "Eliminar #{kind}", post_reaction_path(@post, reaction), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+          <!-- Si el usuario no ha reaccionado o la reacción no es de este tipo, muestra las opciones -->
+          <%= button_to "#{kind}", user_reaction_path(post_id: @post.id, kind: kind), method: :post, class: 'btn btn-outline-primary' %>
+        <% end %>
       </li>
     <% end %>
   </ul>
 </div>
+
 

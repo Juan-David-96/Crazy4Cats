@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   get "pages/index"
   resources :posts do
     resources :comments, only: [:create, :destroy]
-    #resources :reactions, only: [:create, :destroy]
+    resources :reactions, only: [:create, :destroy]
   end
-  
   post '/reactions', to: 'reactions#user_reaction', as: 'user_reaction'
   get '/my_reactions', to: 'reactions#post_with_reactions', as: 'my_reactions'
   devise_for :users, controllers: 

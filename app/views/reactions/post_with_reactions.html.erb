@@ -9,11 +9,11 @@
             <%= post.reactions.find_by(user_id: current_user.id)&.kind || 'Sin reacción' %>
           </span>
         </div>
-        <p class="mb-0">
-          <%= link_to "Mostrar este post", post, class: 'btn btn-link' %>
-        </p>
+        <div>
+          <% reaction = post.reactions.find_by(user_id: current_user.id) %>
+          <%= link_to "Mostrar este post", post, class: 'btn btn-primary btn-sm ms-2' %>
+        </div>
       </li>
     <% end %>
   </ul>
 </div>
-

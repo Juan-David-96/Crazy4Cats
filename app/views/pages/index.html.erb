@@ -19,10 +19,17 @@
   Y lo mejor de todo es que puedes acceder a Crazy4Cats desde cualquier lugar. Así que, no importa si estás en casa o de viaje, ¡siempre podrás revisar las historias y compartir las tuyas!
 </p>
 
-<div class="text-center mt-4">
-  <h2>¡Únete a nuestra comunidad!</h2>
-  <p>Regístrate ahora y empieza a compartir tus aventuras gatunas.</p>
-  <%= link_to 'Registrarse', new_user_registration_path, class: 'btn btn-primary' %>
-</div>
+<% if user_signed_in? %>
+  <div class="text-center mt-4">
+    <h2>¡Bienvenido de nuevo, <%= current_user.name %>!</h2>
+    <p>Gracias por ser parte de nuestra comunidad gatuna.</p>
+  </div>
+<% else %>
+  <div class="text-center mt-4">
+    <h2>¡Únete a nuestra comunidad!</h2>
+    <p>Regístrate ahora y empieza a compartir tus aventuras gatunas.</p>
+    <%= link_to 'Registrarse', new_user_registration_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>
 
 
