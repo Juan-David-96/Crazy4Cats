@@ -1,19 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- /* */
+/* G#2C2C2C*/
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -24,13 +9,16 @@ body {
 /* Títulos */
 h1 {
     text-align: center;
-    color: #007bff;
-    margin-bottom: 20px;
+    color: #FF7F90;
+    margin: 20px 0;
 }
 
 h2 {
-    color: #28a745;
+    color: #FF7F90;
     margin: 20px 0;
+}
+p {
+    color: #4D4D4D;
 }
  /* BARRA DE NAVEGACION*/
 .logo {
@@ -43,7 +31,7 @@ h2 {
     font-size: 25px;
 }
 .navbar {
-    background-color: #343a40 !important; /* Fondo del navbar */
+    background-color: #E68A00 !important; /* Fondo del navbar */
 }
 
 .navbar_saludo {
@@ -61,7 +49,13 @@ h2 {
 .navbar .nav-link:hover,
 .navbar .nav-link.active,
 .logo:hover {
-    color: #007bff !important; /* Color en hover o activo */
+    color: #FFB380!important;
+    text-shadow: 
+    -1px -1px 0 #000000, /* Sombra hacia arriba-izquierda */
+    1px -1px 0 #000000,  /* Sombra hacia arriba-derecha */
+    -1px 1px 0 #000000,  /* Sombra hacia abajo-izquierda */
+    1px 1px 0 #000000;   /* Sombra hacia abajo-derecha */
+    transition: all 0.3s ease; /* Transición suave */
 }
 
 .dropdown-menu {
@@ -75,9 +69,20 @@ h2 {
     color: #212529 !important; /* Color del texto del menú desplegable */
 }
 .dropdown-item:hover {
-    background-color: #007bff; /* Fondo al pasar el mouse sobre el menú desplegable */
+    background-color: #CC6F00; /* Fondo al pasar el mouse sobre el menú desplegable */
     color: #ffffff !important;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.btn-primary {
+    background-color: #FFE599 !important; /* Amarillo suave */
+    color: #000000 !important; /* Texto negro */
+    border: 1px solid #FFE599 !important;
+}
+  
+.btn-primary:hover {
+    background-color: #FFD466 !important; /* Naranja suave en hover */
+    border-color: #FFD466 !important; /* Borde más oscuro en hover */
 }
